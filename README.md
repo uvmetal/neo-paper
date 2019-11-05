@@ -10,22 +10,14 @@ See:
 
 [Paper Wallet](https://github.com/austintgriffith/paper-wallet)
 
+# Intro
+Paper wallets to seed the [Burner Wallet](https://github.com/uvmetal/neo-burner) with private keys.
 
-# Install
+![paperwallets](https://user-images.githubusercontent.com/2653167/51704894-6c7be780-1fd7-11e9-8bf9-09d9a55f6943.jpg)
 
-`yarn`
+# Port Module to Neo Smart Economy Status Summary
 
-# Build
-
-Coming soon!
-
-# Run
-
-Coming soon!
-
-# Port Module to Neo Smart Economy Status
-
-This section shows which modules have been ported to work in the Neo Smart Economy.
+This section shows which modules have been ported from AG's ethereum version to work in the Neo Smart Economy.
 
 generate.js HAS been ported.
 
@@ -41,26 +33,29 @@ report.js HAS NOT been ported.
 
 parseListToAccounts.js HAS NOT been ported.
 
-
-# paperwallet
-Paper wallets to seed the [Burner Wallet](https://github.com/austintgriffith/burner-wallet) with private keys.
-
-![paperwallets](https://user-images.githubusercontent.com/2653167/51704894-6c7be780-1fd7-11e9-8bf9-09d9a55f6943.jpg)
-
 # install
 ```bash
-git clone https://github.com/austintgriffith/paper-wallet
-cd paper-wallet
-npm i
+git clone https://github.com/uvemtal/neo-paper
+cd neo-paper
+yarn
 ```
 
+# Run
 
+See below.
 
-# generate accounts
+# Generate Accounts
+
+This section HAS been ported to Neo Smart Economy.
+
 ```bash
 node generate.js
 ```
-(This will output an `accounts.json` file with the JSON format `[{address,pk}])`
+(This will output an `accounts.json` file with the JSON format `[{address,pk,_address,_privateKey,_publicKey,_scriptHash}])`
+
+The format maintains compatibility with AG's work to ease integration and includes basic neon-js style for forward compatibility with Neo Smart Economy.
+
+TODO: add NEP-6
 
 # edit design and copy
 edit `template.html` to make changes and replace `front.png`, `back.png`, `inside-left.png`, and `inside-right.png` to update images
@@ -68,6 +63,9 @@ edit `template.html` to make changes and replace `front.png`, `back.png`, `insid
 you can also set a global background with the `background.png` and a quick edit to `template.html`
 
 # create wallets from accounts
+
+This section HAS NOT been ported to Neo Smart Economy.
+
 ```bash
 node index.js
 ```
@@ -90,6 +88,8 @@ If you would like me to generate you a special wallet design `cspaperwallet.jpg`
 
 # batch generation
 
+This section HAS NOT been ported to Neo Smart Economy.
+
 If you want to make a large batch of wallets and merge them into a single pdf for ease of printing, there is a `batch.js`:
 
 First, get your `template.html` looking right.
@@ -107,6 +107,8 @@ Finally... print, fold, cut, and glue your way to freedom!
 ![paperwalletprinted](https://user-images.githubusercontent.com/2653167/55584775-48790880-56e2-11e9-93b6-4034c2b0ff5d.jpg)
 
 # air dropping
+
+This section HAS NOT been ported to Neo Smart Economy.
 
 You will need a distribution account. I would suggest using a mnemonic you can remember in the Burner Wallet and then copy the private key the wallet generates.
 
