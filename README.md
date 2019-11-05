@@ -30,10 +30,15 @@ This section shows which modules have been ported to work in the Neo Smart Econo
 generate.js HAS been ported.
 
 airdrop.js HAS NOT been ported.
+
 batch.js HAS NOT been ported.
+
 create.js HAS NOT been ported.
+
 index.js HAS NOT been ported.
+
 report.js HAS NOT been ported.
+
 parseListToAccounts.js HAS NOT been ported.
 
 
