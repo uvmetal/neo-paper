@@ -1,10 +1,15 @@
-var Web3 = require('web3')
-var qr = require('qr-image')
-let base64url = require('base64url')
-let fs = require("fs")
-var web3 = new Web3()
+const base64url = require('base64url')
 
-const COMPRESS = true
+const qr = require('qr-image')
+const fs = require('fs')
+const util = require('util')
+const { default: Neon, wallet, api, rpc } = require('@cityofzion/neon-js')
+const WIF = require('wif')
+
+// TODO: Add WIF format to QR
+// TODO: Add BIP39 format to QR
+
+const COMPRESS = false
 
 var publicAddress = process.argv[2]
 let PK = process.argv[3]
@@ -13,46 +18,47 @@ let URL = process.argv[4]
 let pkLink
 if(COMPRESS){
   function pkToUrl(pk) {
-    return base64url(web3.utils.hexToBytes(pk))
+    // return base64url(web3.utils.hexToBytes(pk))
+    return null
   }
   let encoded = pkToUrl(PK)
-  pkLink = URL+"/pk#"+encoded
+  pkLink = URL+'/pk#'+encoded
 }else{
-  pkLink = URL+"/pk#"+PK.replace("0x","")
+  pkLink = URL+'/pk#'+PK.replace('0x','')
 }
 //console.log(pkLink)
 var private = qr.image(pkLink, { type: 'png' });
-private.pipe(require('fs').createWriteStream('private.png'));
+private.pipe(require('fs').createWriteStream('private.png'))
 
-var public = qr.image(URL+"/"+publicAddress, { type: 'svg' });
-public.pipe(require('fs').createWriteStream('public.svg'));
+var public = qr.image(URL+'/'+publicAddress, { type: 'svg' })
+public.pipe(require('fs').createWriteStream('public.svg'))
 
 console.log(publicAddress)
 
-fs.readFile("template.html", 'utf8', (err,data) => {
+fs.readFile('template.html', 'utf8', (err,data) => {
   if (err) {
-    return console.log(err);
+    return console.log(err)
   }
-  var result = data.replace(/\*\*PUBLIC\*\*/g,publicAddress.substring(0,9)+"......"+publicAddress.substring(publicAddress.length-8));
-  result = result.replace(/\*\*URL\*\*/g,URL);
-  result = result.replace(/"\.\//g, "\"file://"+__dirname+"/");
+  var result = data.replace(/\*\*PUBLIC\*\*/g,publicAddress.substring(0,9)+'......'+publicAddress.substring(publicAddress.length-8))
+  result = result.replace(/\*\*URL\*\*/g,URL)
+  result = result.replace(/'\.\//g, '\'file://'+__dirname+'/')
 
   console.log(result)
 
-  fs.writeFile("generated.html", result, 'utf8', function (err) {
-     if (err) return console.log(err);
+  fs.writeFile('generated.html', result, 'utf8', function (err) {
+     if (err) return console.log(err)
 
-     fs.appendFile('addresses.txt',publicAddress+"\n", function (err) {
-       if (err) throw err;
-     });
+     fs.appendFile('addresses.txt',publicAddress+'\n', function (err) {
+       if (err) throw err
+     })
 
-     var html = fs.readFileSync('./generated.html', 'utf8');
-     var conversion = require("phantom-html-to-pdf")();
-     console.log("Generating PDF...")
+     var html = fs.readFileSync('./generated.html', 'utf8')
+     var conversion = require('phantom-html-to-pdf')()
+     console.log('Generating PDF...')
      conversion({
        html: html,
        allowLocalFilesAccess: true,
-       phantomPath: require("phantomjs-prebuilt").path,
+       phantomPath: require('phantomjs-prebuilt').path,
        settings: {
             javascriptEnabled : true,
             resourceTimeout: 10000
@@ -61,9 +67,9 @@ fs.readFile("template.html", 'utf8', (err,data) => {
             format: 'A4',
             orientation: 'portrait',
             margin: {
-                top: "0.33in",
-                left: "0in",
-                right:"0.19in"
+                top: '0.33in',
+                left: '0in',
+                right:'0.19in'
             }
         }
      }, function(err, pdf) {
@@ -73,8 +79,8 @@ fs.readFile("template.html", 'utf8', (err,data) => {
        // since pdf.stream is a node.js stream you can use it
        // to save the pdf to a file (like in this example) or to
        // respond an http request.
-     pdf.stream.pipe(output);
-     conversion.kill();
-     });
-  });
-});
+     pdf.stream.pipe(output)
+     conversion.kill()
+     })
+  })
+})

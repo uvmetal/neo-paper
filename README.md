@@ -21,19 +21,20 @@ This section shows which modules have been ported from AG's ethereum version to 
 
 generate.js HAS been ported.
 
+create.js HAS been ported.
+
+index.js HAS been ported.
+
+
 airdrop.js HAS NOT been ported.
 
 batch.js HAS NOT been ported.
-
-create.js HAS NOT been ported.
-
-index.js HAS NOT been ported.
 
 report.js HAS NOT been ported.
 
 parseListToAccounts.js HAS NOT been ported.
 
-# install
+# Install
 ```bash
 git clone https://github.com/uvemtal/neo-paper
 cd neo-paper
@@ -57,14 +58,18 @@ The format maintains compatibility with AG's work to ease integration and includ
 
 TODO: add NEP-6
 
-# edit design and copy
-edit `template.html` to make changes and replace `front.png`, `back.png`, `inside-left.png`, and `inside-right.png` to update images
+# Edit Design and Copy
 
-you can also set a global background with the `background.png` and a quick edit to `template.html`
+Edit `template.html` to make changes and replace `front.png`, `back.png`, `inside-left.png`, and `inside-right.png` to update images.
 
-# create wallets from accounts
+You can also set a global background with the `background.png` and a quick edit to `template.html`.
 
-This section HAS NOT been ported to Neo Smart Economy.
+# Create Wallets from Accounts
+
+This section HAS been ported to Neo Smart Economy. The current implementation only generates a private key QR image. only a PNG of the private key is created. Full PDF completion is still being developed and tested.
+
+TODO: Add WIF to QR
+TODO: Add BIP39 to QR
 
 ```bash
 node index.js
@@ -72,7 +77,7 @@ node index.js
 
 (this will output `wallets.pdf`)
 
-# print wallets
+# Print Wallets
 ```bash
 lp wallets.pdf
 ```
@@ -86,7 +91,7 @@ If you would like me to generate you a special wallet design `cspaperwallet.jpg`
 ![walletsinfold](https://user-images.githubusercontent.com/2653167/51705218-3ab75080-1fd8-11e9-9495-66458938d9f9.jpg)
 
 
-# batch generation
+# Batch Generation
 
 This section HAS NOT been ported to Neo Smart Economy.
 
@@ -106,7 +111,7 @@ Finally... print, fold, cut, and glue your way to freedom!
 
 ![paperwalletprinted](https://user-images.githubusercontent.com/2653167/55584775-48790880-56e2-11e9-93b6-4034c2b0ff5d.jpg)
 
-# air dropping
+# Air Dropping
 
 This section HAS NOT been ported to Neo Smart Economy.
 
