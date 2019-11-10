@@ -3,7 +3,7 @@ const exec = util.promisify(require('child_process').exec)
 var merge = require('easy-pdf-merge')
 var fs = require('fs')
 
-
+let defly = true
 
 let sources = []
 
@@ -17,6 +17,9 @@ async function generate(accounts){
     if (stderr) {
       console.error(`error: ${stderr}`)
     }
+
+    if (defly && stdout) console.log('stdout: '+stdout)
+
     let name = account.address
     console.log('Generated: '+name);
     await exec('mv generated.pdf '+name+'.pdf')

@@ -35,6 +35,9 @@ report.js HAS NOT been ported.
 parseListToAccounts.js HAS NOT been ported.
 
 # Install
+
+Please note the easy-pdf-merge package requires java be installed on your system.
+
 ```bash
 git clone https://github.com/uvemtal/neo-paper
 cd neo-paper
