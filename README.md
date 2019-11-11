@@ -12,7 +12,7 @@ See Austin Griffith's Work:
 
 # neo-paper
 
-Welcome to the first official paper wallet for the Neo Smart Economy!
+Welcome to the paper wallet for the Neo Smart Economy!
 
 # Intro
 
