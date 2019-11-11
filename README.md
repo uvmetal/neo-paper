@@ -11,9 +11,16 @@ See:
 [Paper Wallet](https://github.com/austintgriffith/paper-wallet)
 
 # Intro
-Paper wallets to seed the [Burner Wallet](https://github.com/uvmetal/neo-burner) with private keys.
+Paper wallets to seed the [Neo-Burner](https://github.com/uvmetal/neo-burner) with private keys.
 
 ![paperwallets](https://user-images.githubusercontent.com/2653167/51704894-6c7be780-1fd7-11e9-8bf9-09d9a55f6943.jpg)
+
+
+# Features
+
+Public QR has optional URL along with the Public Address encoded into the QR image.
+
+Private QR has BIP-39 mnemonic seed, WIF, and hex private key encoded into the QR image.
 
 # Port Module to Neo Smart Economy Status Summary
 
@@ -50,10 +57,10 @@ See below.
 
 # Generate Accounts
 
-This section HAS been ported to Neo Smart Economy.
+This section HAS been ported to Neo Smart Economy. NOTE! Make sure you generate at least 2 accounts in order for index process to work!
 
 ```bash
-node generate.js
+node generate.js 2
 ```
 (This will output an `accounts.json` file with the JSON format `[{address,pk,_address,_privateKey,_publicKey,_scriptHash}])`
 
@@ -71,8 +78,7 @@ You can also set a global background with the `background.png` and a quick edit 
 
 This section HAS been ported to Neo Smart Economy. The current implementation only generates a private key QR image. only a PNG of the private key is created. Full PDF completion is still being developed and tested.
 
-TODO: Add WIF to QR
-TODO: Add BIP39 to QR
+Make sure to generate at least 2 accounts for this command to work!
 
 ```bash
 node index.js

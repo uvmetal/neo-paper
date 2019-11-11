@@ -28,7 +28,6 @@ if (PK) {
 
   let reversedPK = bip39.mnemonicToEntropy(bip39Mnemonic)
   console.log('reversed PK: '+reversedPK)
-
 }
 
 let pkLink
