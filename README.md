@@ -62,7 +62,7 @@ This section HAS been ported to Neo Smart Economy. NOTE! Make sure you generate 
 ```bash
 node generate.js 2
 ```
-(This will output an `accounts.json` file with the JSON format `[{address,pk,_address,_privateKey,_publicKey,_scriptHash}])`
+(This will output an `accounts.json` file with the JSON format `[{address,pk,_address,_privateKey,_publicKey,_scriptHash, _WIF}])`
 
 The format maintains compatibility with AG's work to ease integration and includes basic neon-js style for forward compatibility with Neo Smart Economy.
 
@@ -112,3 +112,8 @@ This section HAS NOT been ported to Neo Smart Economy.
 <insert image>
 
 # Learn More
+
+
+# A Note on html-pdf
+
+This build does not accept HTML from random sources. You control your own template.html. This means https://www.npmjs.com/advisories/1095 is not relevant at this moment. If you plan to use this source on a public facing system where unsanitized html is used you should rethink using html-pdf.
