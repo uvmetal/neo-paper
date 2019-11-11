@@ -23,12 +23,15 @@ if(!AMOUNT) AMOUNT=1
 
 let accounts
 
-for (let a=0;a<AMOUNT;a++) {
+for (let a=0; a<AMOUNT; a++) {
 
-  let result = ""
+  let result = ''
 
   result = new wallet.Account(wallet.generatePrivateKey())
+
   console.log('\nCreated wallet!: '+util.inspect(result, {depth: null}))
+
+  console.log('WIF: '+result.WIF)
 
   try {
     accounts = JSON.parse(fs.readFileSync("./accounts.json").toString())
@@ -42,7 +45,8 @@ for (let a=0;a<AMOUNT;a++) {
     _address:result._address,
     _privateKey: result._privateKey,
     _publicKey: result._publicKey,
-    _scriptHash: result._scriptHash
+    _scriptHash: result._scriptHash,
+    _WIF: result.WIF
   })
 
   iterate(accounts, '')

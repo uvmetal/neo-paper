@@ -6,7 +6,7 @@ const qr = require('qr-image')
 const fs = require('fs')
 const util = require('util')
 const { default: Neon, wallet, api, rpc } = require('@cityofzion/neon-js')
-const WIF = require('wif')
+// const WIF = require('wif')
 
 // TODO: Add WIF format to QR
 // TODO: Add BIP39 format to QR
@@ -16,10 +16,19 @@ const COMPRESS = false
 var publicAddress = process.argv[2]
 let PK = process.argv[3]
 let URL = process.argv[4]
+if (!URL) URL = ''
+
+let WIF = process.argv[5]
+
+let bip39Mnemonic
 
 if (PK) {
-  let bip39Mnemonic = bip39.entropyToMnemonic(PK)
+  bip39Mnemonic = bip39.entropyToMnemonic(PK)
   console.log('bip39 mnemonic: '+bip39Mnemonic)
+
+  let reversedPK = bip39.mnemonicToEntropy(bip39Mnemonic)
+  console.log('reversed PK: '+reversedPK)
+
 }
 
 let pkLink
@@ -32,15 +41,15 @@ if(COMPRESS){
   let encoded = pkToUrl(PK)
   pkLink = URL+'/pk#'+encoded
 }else{
-  pkLink = URL+'/pk#'+PK.replace('0x','')
+  pkLink = PK.replace('0x','')
 }
 
 console.log('pkLink: '+pkLink)
 
-var private = qr.image(pkLink, { type: 'png' });
+var private = qr.image('Private Key: \n'+pkLink+'\nWIF: \n'+WIF+'\nSeed: '+bip39Mnemonic, { type: 'png' });
 private.pipe(require('fs').createWriteStream('private.png'))
 
-var public = qr.image(URL+'/'+publicAddress, { type: 'svg' })
+var public = qr.image('Public\nURL: \n'+URL+'\nPublic Address: \n'+publicAddress, { type: 'svg' })
 public.pipe(require('fs').createWriteStream('public.svg'))
 
 console.log('publicAddress: '+publicAddress)

@@ -13,7 +13,7 @@ async function generate(accounts){
   let account
   for(let a in accounts){
     account = accounts[a]
-    const { stdout, stderr } = await exec('node create.js '+account.address+' '+account.pk+' '+URL)
+    const { stdout, stderr } = await exec('node create.js '+account.address+' '+account.pk+' '+URL+' '+account._WIF )
     if (stderr) {
       console.error(`error: ${stderr}`)
     }
