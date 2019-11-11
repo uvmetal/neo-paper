@@ -1,7 +1,7 @@
 const util = require('util')
 const exec = util.promisify(require('child_process').exec)
-var merge = require('easy-pdf-merge')
-var fs = require('fs')
+const merge = require('easy-pdf-merge')
+const fs = require('fs')
 
 let defly = true
 
@@ -11,9 +11,11 @@ let URL = process.argv[2] | ''
 
 async function generate(accounts){
   let account
-  for(let a in accounts){
+
+  for (let a in accounts) {
     account = accounts[a]
     const { stdout, stderr } = await exec('node create.js '+account.address+' '+account.pk+' '+URL+' '+account._WIF )
+
     if (stderr) {
       console.error(`error: ${stderr}`)
     }
@@ -26,19 +28,21 @@ async function generate(accounts){
     sources[a] = (''+name+'.pdf')
   }
 
-  merge(sources,'wallets.pdf',function(err){
-          if(err)
-          return console.log(err)
-          console.log('\nSuccess')
-          var i = sources.length
-          sources.forEach(function(filepath){
-            console.log('Cleaning up '+filepath)
-            try{
-              if(fs.existsSync(filepath)){
-                fs.unlinkSync(filepath)
-              }
-            }catch(e){console.log(e)}
-          })
+  merge(sources,'wallets.pdf',function(err) {
+    if (err)
+    return console.log(err)
+    console.log('\nSuccess')
+    var i = sources.length
+    sources.forEach(function(filepath) {
+      console.log('Cleaning up '+filepath)
+      try {
+        if (fs.existsSync(filepath))  {
+          fs.unlinkSync(filepath)
+        }
+      } catch(e){
+        console.log(e)
+      }
+    })
   })
 }
 

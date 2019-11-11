@@ -37,20 +37,20 @@ if (PK) {
 
 let pkLink
 
-if(COMPRESS){
+if (COMPRESS) {
   function pkToUrl(pk) {
     // return base64url(web3.utils.hexToBytes(pk))
     return null
   }
   let encoded = pkToUrl(PK)
   pkLink = URL+'/pk#'+encoded
-}else{
+} else {
   pkLink = PK.replace('0x','')
 }
 
 console.log('pkLink: '+pkLink)
 
-var private = qr.image('Private Key: \n'+pkLink+'\nWIF: \n'+WIF+'\nSeed: '+bip39Mnemonic, { type: 'png' });
+var private = qr.image('Private Key: \n'+pkLink+'\nWIF: \n'+WIF+'\nSeed: '+bip39Mnemonic, { type: 'png' })
 private.pipe(require('fs').createWriteStream('private.png'))
 
 var public = qr.image('Public\nURL: \n'+URL+'\nPublic Address: \n'+publicAddress, { type: 'svg' })
