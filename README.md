@@ -22,6 +22,8 @@ Public QR has optional URL along with the Public Address encoded into the QR ima
 
 Private QR has BIP-39 mnemonic seed, WIF, and hex private key encoded into the QR image.
 
+This has only been tested on Ubuntu 18.04 so far!
+
 # Port Module to Neo Smart Economy Status Summary
 
 This section shows which modules have been ported from AG's ethereum version to work in the Neo Smart Economy.
