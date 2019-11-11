@@ -1,20 +1,22 @@
-# neo-paper
+# Overview
 
 This is a paper wallet for the Neo Smart Economy. neo-paper is the introductory work for neo-burner.
 
-This work is largely inspired by, and structurally plagiarized from, the work of Austin Griffith for Ethereum. Thank you for your fantastic work, informative videos, and creative problem solving.
+This work is largely inspired by, and structurally based on, the work of Austin Griffith for Ethereum. Thank you for your fantastic work, informative videos, and creative problem solving.
 
-See:
+See Austin Griffith's Work:
 
 [Burner Wallet](https://github.com/austintgriffith/burner-wallet)
 
 [Paper Wallet](https://github.com/austintgriffith/paper-wallet)
 
+# neo-paper
+
+Welcome to the first official paper wallet for the Neo Smart Economy!
+
 # Intro
-Paper wallets to seed the [Neo-Burner](https://github.com/uvmetal/neo-burner) with private keys.
 
-![paperwallets](https://user-images.githubusercontent.com/2653167/51704894-6c7be780-1fd7-11e9-8bf9-09d9a55f6943.jpg)
-
+neo-paper provides a system to generate paper wallets to seed [neo-burner](https://github.com/uvmetal/neo-burner) with private keys. The goal is also to be able to ease the ability to generate printable batches of wallets for events, merchants, etc.
 
 # Features
 
