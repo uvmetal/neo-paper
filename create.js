@@ -8,9 +8,6 @@ const util = require('util')
 const { default: Neon, wallet, api, rpc } = require('@cityofzion/neon-js')
 // const WIF = require('wif')
 
-// TODO: Add WIF format to QR
-// TODO: Add BIP39 format to QR
-
 const COMPRESS = false
 
 var publicAddress = process.argv[2]
@@ -23,11 +20,19 @@ let WIF = process.argv[5]
 let bip39Mnemonic
 
 if (PK) {
+  console.log('Input Private Key: \n'+PK)
+
   bip39Mnemonic = bip39.entropyToMnemonic(PK)
-  console.log('bip39 mnemonic: '+bip39Mnemonic)
+  console.log('BIP-39 Mnemonic: \n'+bip39Mnemonic)
 
   let reversedPK = bip39.mnemonicToEntropy(bip39Mnemonic)
-  console.log('reversed PK: '+reversedPK)
+  console.log('Mnemonic Reversed Back to PK: \n'+reversedPK)
+
+  if (PK !== reversedPK) {
+    console.log('Seed did not reverse to private key. Please try again.')
+    console.log('Got: \n'+reversedPK+' and should have been: \n'+PK)
+    return
+  }
 }
 
 let pkLink
@@ -60,8 +65,6 @@ fs.readFile('template.html', 'utf8', (err,data) => {
   var result = data.replace(/\*\*PUBLIC\*\*/g,publicAddress.substring(0,9)+'......'+publicAddress.substring(publicAddress.length-8))
   result = result.replace(/\*\*URL\*\*/g,URL)
   result = result.replace(/'\.\//g, '\'file://'+__dirname+'/')
-
-  console.log('template.html result: '+result)
 
   fs.writeFile('generated.html', result, 'utf8', function (err) {
     if (err) return console.log(err)

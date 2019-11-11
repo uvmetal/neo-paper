@@ -18,7 +18,7 @@ async function generate(accounts){
       console.error(`error: ${stderr}`)
     }
 
-    if (defly && stdout) console.log('stdout: '+stdout)
+    if (defly && stdout) console.log('\nstdout: \n'+stdout)
 
     let name = account.address
     console.log('Generated: '+name);
@@ -29,7 +29,7 @@ async function generate(accounts){
   merge(sources,'wallets.pdf',function(err){
           if(err)
           return console.log(err)
-          console.log('Success')
+          console.log('\nSuccess')
           var i = sources.length
           sources.forEach(function(filepath){
             console.log('Cleaning up '+filepath)
