@@ -41,8 +41,6 @@ airdrop.js HAS NOT been ported.
 
 report.js HAS NOT been ported, but is functional. This just prints a list of accounts from the JSON file.
 
-parseListToAccounts.js HAS NOT been ported.
-
 # Install
 
 Please note the easy-pdf-merge package requires java be installed on your system.
