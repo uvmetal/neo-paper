@@ -32,7 +32,7 @@ This has only been tested on Ubuntu 18.04 so far!
 
 # Port Module to Neo Smart Economy Status Summary
 
-This section shows which modules have been ported from AG's ethereum version to work in the Neo Smart Economy.
+This section shows which modules have been ported from AG's Ethereum version to work in the Neo Smart Economy.
 
 generate.js HAS been ported.
 
@@ -120,4 +120,4 @@ This section HAS NOT been ported to Neo Smart Economy.
 
 # A Note on html-pdf
 
-This build does not accept HTML from random sources. You control your own template.html. This means https://www.npmjs.com/advisories/1095 is not relevant at this moment. If you plan to use this source on a public facing system where unsanitized html is used you should rethink using html-pdf.
+This build does not accept HTML from random sources. You control your own template.html. This means https://www.npmjs.com/advisories/1095 is not relevant at this moment. If you plan to use this source on a public facing system where unsanitized HTML is used you should rethink using html-pdf.
