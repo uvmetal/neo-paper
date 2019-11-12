@@ -3,8 +3,8 @@
   "version": "0.0.1",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "clean": "rm accounts.json addresses.txt generated.html private.png public.png wallets.pdf"
+    "clean": "rm accounts.json addresses.txt generated.html private.png public.png wallets.pdf",
+    "test": "node generate && node index"
   },
   "repository": {
     "type": "git",
