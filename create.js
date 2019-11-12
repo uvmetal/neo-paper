@@ -53,8 +53,8 @@ console.log('pkLink: '+pkLink)
 var private = qr.image('Private Key: \n'+pkLink+'\nWIF: \n'+WIF+'\nSeed: '+bip39Mnemonic, { type: 'png' })
 private.pipe(require('fs').createWriteStream('private.png'))
 
-var public = qr.image('Public\nURL: \n'+URL+'\nPublic Address: \n'+publicAddress, { type: 'svg' })
-public.pipe(require('fs').createWriteStream('public.svg'))
+var public = qr.image('Public\nURL: \n'+URL+'\nPublic Address: \n'+publicAddress, { type: 'png' })
+public.pipe(require('fs').createWriteStream('public.png'))
 
 console.log('publicAddress: '+publicAddress)
 
