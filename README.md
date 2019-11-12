@@ -14,6 +14,8 @@ See Austin Griffith's Work:
 
 Welcome to the paper wallet for the Neo Smart Economy!
 
+![neo-paper](/images/neo-paper-ex.png?raw=true "Optional Title")
+
 # Intro
 
 neo-paper provides a system to generate paper wallets to seed [neo-burner](https://github.com/uvmetal/neo-burner) with private keys. The goal is also to be able to ease the ability to generate printable batches of wallets for events, merchants, etc.
