@@ -26,6 +26,10 @@ Private QR has BIP-39 mnemonic seed, WIF, and hex private key encoded into the Q
 
 This has only been tested on Ubuntu 18.04 so far!
 
+# Todo
+
+1. Add branding with custom neo-paper logo.
+
 # Port Module to Neo Smart Economy Status Summary
 
 This section shows which modules have been ported from AG's ethereum version to work in the Neo Smart Economy.
