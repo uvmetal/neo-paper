@@ -1,12 +1,13 @@
 {
   "name": "neo-paper",
-  "version": "0.9.0",
+  "version": "1.0.0",
   "main": "wallets.js",
   "scripts": {
     "clean": "rm accounts.json addresses.txt generated.html private.png bip39.png public.png wallets.pdf url.png",
     "test": "node accounts && node wallets",
     "accounts": "node accounts",
-    "wallets": "node wallets"
+    "wallets": "node wallets",
+    "wallet": "node wallets"
   },
   "repository": {
     "type": "git",

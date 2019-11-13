@@ -1,6 +1,6 @@
 # Overview
 
-`neo-paper v0.9.0`
+`neo-paper v1.0.0`
 
 This is a paper wallet for the Neo Smart Economy. neo-paper is the introductory work for neo-burner.
 
@@ -62,8 +62,6 @@ node accounts.js [n]
 This will output an `accounts.json` file with the JSON format: `[{address,pk,_address,_privateKey,_publicKey,_scriptHash, _WIF}]`
 
 The format maintains compatibility with AG's work to ease integration and includes basic neon-js style for forward compatibility with Neo Smart Economy.
-
-TODO: add encrypted key support. This would require a command line option to generate an encrypted private key.
 
 # Edit Design and Copy
 
@@ -128,7 +126,7 @@ This creates a pdf of qr codes containing all the wallet information for an acco
 node qrpdf.js <public address> <private key> <URL> <WIF>
 ```
 
-# Air Dropping
+# Air Drop
 
 Coming soon!
 
