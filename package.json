@@ -3,7 +3,7 @@
   "version": "0.9.0",
   "main": "wallets.js",
   "scripts": {
-    "clean": "rm accounts.json addresses.txt generated.html private.png public.png wallets.pdf",
+    "clean": "rm accounts.json addresses.txt generated.html private.png bip39.png public.png wallets.pdf url.png",
     "test": "node accounts && node wallets",
     "accounts": "node accounts",
     "wallets": "node wallets"

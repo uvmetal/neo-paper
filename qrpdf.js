@@ -56,13 +56,21 @@ if (COMPRESS) {
 
 console.log('pkLink: '+pkLink)
 
-let private = qr.image('Private Key: \n'+pkLink+'\nWIF: \n'+WIF+'\nSeed: '+bip39Mnemonic, { type: 'png' })
-private.pipe(require('fs').createWriteStream('private.png'))
-
-let public = qr.image('Public\nURL: \n'+URL+'\nPublic Address: \n'+publicAddress, { type: 'png' })
+let public = qr.image(publicAddress, { type: 'png' })
 public.pipe(require('fs').createWriteStream('public.png'))
+console.log('Public Address: '+publicAddress)
 
-console.log('publicAddress: '+publicAddress)
+let url = qr.image(URL, { type: 'png' })
+url.pipe(require('fs').createWriteStream('url.png'))
+console.log('URL: '+URL)
+
+let private = qr.image(WIF, { type: 'png' })
+private.pipe(require('fs').createWriteStream('private.png'))
+console.log('WIF: '+WIF)
+
+let bipqr = qr.image(bip39Mnemonic, { type: 'png' })
+bipqr.pipe(require('fs').createWriteStream('bip39.png'))
+console.log('BIP-39: '+bip39Mnemonic)
 
 fs.readFile('template.html', 'utf8', (err,data) => {
   if (err) {

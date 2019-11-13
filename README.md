@@ -24,9 +24,13 @@ neo-paper provides a system to generate paper wallets to seed [neo-burner](https
 
 # Features
 
-Public QR has optional URL along with the Public Address encoded into the QR image.
+Public QR has is the public address. Share this to get loot!
 
-Private QR has BIP-39 mnemonic seed, WIF, and hex private key encoded into the QR image.
+URL QR is an optional URL. Follow this to download, learn, or do web stuff.
+
+WIF QR is the private key in a Wallet Import Format. DO NOT SHARE. You can scan this to import your account into a mobile or desktop wallet.
+
+BIP-39 QR is the mnemonic seed of your hex private key encoded into a human-readable format. DO NOT SHARE. You only need to scan this if you want to save or transcribe a copy of your recovery seed.
 
 This has only been tested on Ubuntu 18.04 so far!
 
@@ -83,17 +87,24 @@ node wallets.js [URL]
 
 You can share this with everyone!
 
+- Public Neo Smart Economy Account Address. Get Loot!
+
+## URL QR Contents
+
+You can share this with everyone!
+
 - URL (defaults to https://o3.network if called by `wallets.js`, but can be changed with CLI)
-- Public Neo Smart Economy Account Address: Get Loot!
 
 ## Private QR Contents
 
-DO NOT SHARE THIS WITH ANYONE!
+DO NOT SHARE THIS WITH ANYONE! Scan this to transfer your account to a mobile or desktop wallet.
 
-- Hex Private Key for your Neo Smart Economy Account
-  - You send loot with this so guard it with your life!
 - WIF (Wallet Import Format)
   - This is an encoded private key (basically a friendlier text version), but it is still un-encrypted.
+  - You send loot with this so guard it with your life!
+
+## BIP-39 Seed QR
+
 - BIP-39 Recovery Seed
   - This is a human-readable version of your private key. If anyone gets this you're in trouble. It is here to make it easier to transcribe your key if you should need to use rock and paper (did your copy and paste break?).
 
