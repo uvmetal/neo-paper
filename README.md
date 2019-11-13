@@ -14,7 +14,7 @@ See Austin Griffith's Work:
 
 # neo-paper
 
-Welcome to the paper wallet for the Neo Smart Economy! 
+Welcome to the paper wallet for the Neo Smart Economy!
 
 ![neo-paper](/images/neo-paper-ex.png?raw=true "Optional Title")
 
@@ -71,7 +71,7 @@ You can also set a global background with the `background.png` and a quick edit 
 
 `wallets.js` calls `qrpdf.js` for each account in `accounts.json` and merges the `generated.pdf` files into a single `wallets.pdf` for easy printing.
 
-First, get your `template.html` looking right if you want to customize the appearance. URL argument defaults to https://neonwallet.com if you do not provide it as a CLI argument.
+First, get your `template.html` looking right if you want to customize the appearance. URL argument defaults to https://o3.network if you do not provide it as a CLI argument.
 
 ```bash
 node wallets.js [URL]
@@ -83,7 +83,7 @@ node wallets.js [URL]
 
 You can share this with everyone!
 
-- URL (defaults to https://neonwallet.com if called by `wallets.js`, but can be changed with CLI)
+- URL (defaults to https://o3.network if called by `wallets.js`, but can be changed with CLI)
 - Public Neo Smart Economy Account Address: Get Loot!
 
 ## Private QR Contents
