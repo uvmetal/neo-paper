@@ -72,7 +72,7 @@ node generate.js 2
 
 The format maintains compatibility with AG's work to ease integration and includes basic neon-js style for forward compatibility with Neo Smart Economy.
 
-TODO: add NEP-6
+TODO: add encrypted key support. This would require a command line option to generate an encrypted private key.
 
 # Edit Design and Copy
 
