@@ -1,3 +1,11 @@
+// qrpdf.js
+
+// Create pdf of qr codes containing all the wallet information for an account passed on the command line.
+// This uses template.html to produce generated.html which produces generated.pdf.
+// The private qr also contains a BIP-39 recovery seed.
+
+// node qrpdf <public address> <private key> <URL> <WIF>
+
 const base64url = require('base64url')
 
 const pdf = require('html-pdf')
@@ -10,12 +18,10 @@ const { default: Neon, wallet, api, rpc } = require('@cityofzion/neon-js')
 
 const COMPRESS = false
 
-var publicAddress = process.argv[2]
-let PK = process.argv[3]
-let URL = process.argv[4]
-if (!URL) URL = ''
-
-let WIF = process.argv[5]
+const publicAddress = process.argv[2]
+const PK = process.argv[3]
+const URL = process.argv[4]
+const WIF = process.argv[5]
 
 let bip39Mnemonic
 
@@ -50,10 +56,10 @@ if (COMPRESS) {
 
 console.log('pkLink: '+pkLink)
 
-var private = qr.image('Private Key: \n'+pkLink+'\nWIF: \n'+WIF+'\nSeed: '+bip39Mnemonic, { type: 'png' })
+let private = qr.image('Private Key: \n'+pkLink+'\nWIF: \n'+WIF+'\nSeed: '+bip39Mnemonic, { type: 'png' })
 private.pipe(require('fs').createWriteStream('private.png'))
 
-var public = qr.image('Public\nURL: \n'+URL+'\nPublic Address: \n'+publicAddress, { type: 'png' })
+let public = qr.image('Public\nURL: \n'+URL+'\nPublic Address: \n'+publicAddress, { type: 'png' })
 public.pipe(require('fs').createWriteStream('public.png'))
 
 console.log('publicAddress: '+publicAddress)
@@ -63,7 +69,7 @@ fs.readFile('template.html', 'utf8', (err,data) => {
     return console.log(err)
   }
   // var result = data.replace(/\*\*PUBLIC\*\*/g,publicAddress.substring(0,9)+'......'+publicAddress.substring(publicAddress.length-8))
-  var result = data.replace(/\*\*PUBLIC\*\*/g,publicAddress)
+  let result = data.replace(/\*\*PUBLIC\*\*/g,publicAddress)
   result = result.replace(/\*\*URL\*\*/g,URL)
   result = result.replace(/'\.\//g, '\'file://'+__dirname+'/')
 
@@ -78,8 +84,8 @@ fs.readFile('template.html', 'utf8', (err,data) => {
 
     console.log(`cwd: ${cwd}`)
 
-    var html = fs.readFileSync('./generated.html', 'utf8')
-    var options = {
+    let html = fs.readFileSync('./generated.html', 'utf8')
+    let options = {
       // Rendering options
       format: 'Letter',
       'base': cwd, // Base path that's used to load files (images, css, js) when they aren't referenced using a host

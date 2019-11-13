@@ -1,8 +1,10 @@
 # Overview
 
+`neo-paper v0.9.0`
+
 This is a paper wallet for the Neo Smart Economy. neo-paper is the introductory work for neo-burner.
 
-This work is largely inspired by, and structurally based on, the work of Austin Griffith for Ethereum. Thank you for your fantastic work, informative videos, and creative problem solving.
+This work has been mostly refactored now, but was largely inspired by, and originally structurally based on, the work of Austin Griffith for Ethereum. Thank you for your fantastic work, informative videos, and creative problem solving.
 
 See Austin Griffith's Work:
 
@@ -12,7 +14,7 @@ See Austin Griffith's Work:
 
 # neo-paper
 
-Welcome to the paper wallet for the Neo Smart Economy!
+Welcome to the paper wallet for the Neo Smart Economy! 
 
 ![neo-paper](/images/neo-paper-ex.png?raw=true "Optional Title")
 
@@ -32,24 +34,9 @@ This has only been tested on Ubuntu 18.04 so far!
 
 1. Add branding with custom neo-paper logo.
 
-# Port Module to Neo Smart Economy Status Summary
-
-This section shows which modules have been ported from AG's Ethereum version to work in the Neo Smart Economy.
-
-generate.js HAS been ported.
-
-create.js HAS been ported.
-
-index.js HAS been ported.
-
-
-airdrop.js HAS NOT been ported.
-
-report.js HAS NOT been ported, but is functional. This just prints a list of accounts from the JSON file.
-
 # Install
 
-Please note the easy-pdf-merge package requires java be installed on your system.
+Please note the easy-pdf-merge package requires Java be installed on your system.
 
 ```bash
 git clone https://github.com/uvemtal/neo-paper
@@ -63,12 +50,12 @@ See below.
 
 # Generate Accounts
 
-This section HAS been ported to Neo Smart Economy. NOTE! Make sure you generate at least 2 accounts in order for index process to work!
+Generate n accounts, 2 (by default) if no argument is provided, and store them to `accounts.json`.
 
 ```bash
-node generate.js 2
+node accounts.js [n]
 ```
-(This will output an `accounts.json` file with the JSON format `[{address,pk,_address,_privateKey,_publicKey,_scriptHash, _WIF}])`
+This will output an `accounts.json` file with the JSON format: `[{address,pk,_address,_privateKey,_publicKey,_scriptHash, _WIF}]`
 
 The format maintains compatibility with AG's work to ease integration and includes basic neon-js style for forward compatibility with Neo Smart Economy.
 
@@ -82,18 +69,33 @@ You can also set a global background with the `background.png` and a quick edit 
 
 # Create Wallets from Accounts
 
-This section HAS been ported to Neo Smart Economy. The current implementation only generates a private key QR image. only a PNG of the private key is created. Full PDF completion is still being developed and tested.
+`wallets.js` calls `qrpdf.js` for each account in `accounts.json` and merges the `generated.pdf` files into a single `wallets.pdf` for easy printing.
 
-First, get your `template.html` looking right if you want to customize the appearance.
-
-Make sure to generate at least 2 accounts for this command to work!
-
+First, get your `template.html` looking right if you want to customize the appearance. URL argument defaults to https://neonwallet.com if you do not provide it as a CLI argument.
 
 ```bash
-node index.js
+node wallets.js [URL]
 ```
 
-(this will output `wallets.pdf`)
+(this will output `wallets.pdf` )
+
+## Public QR Contents
+
+You can share this with everyone!
+
+- URL (defaults to https://neonwallet.com if called by `wallets.js`, but can be changed with CLI)
+- Public Neo Smart Economy Account Address: Get Loot!
+
+## Private QR Contents
+
+DO NOT SHARE THIS WITH ANYONE!
+
+- Hex Private Key for your Neo Smart Economy Account
+  - You send loot with this so guard it with your life!
+- WIF (Wallet Import Format)
+  - This is an encoded private key (basically a friendlier text version), but it is still un-encrypted.
+- BIP-39 Recovery Seed
+  - This is a human-readable version of your private key. If anyone gets this you're in trouble. It is here to make it easier to transcribe your key if you should need to use rock and paper (did your copy and paste break?).
 
 # Print Wallets
 
@@ -101,21 +103,24 @@ node index.js
 lp wallets.pdf
 ```
 
--------------------------
+# NITTY GRITTY
 
-You can print out `private.png` or `public.svg` if you are in a pinch.
+Get on down with ya bad self.
 
-<insert image>
+# qrpdf.js
 
-Finally... print, fold, cut, and glue your way to freedom!
+This creates a pdf of qr codes containing all the wallet information for an account passed on the command line.
+`template.html` is used to produce `generated.html` which produces `generated.pdf`.
 
-<insert image>
+
+```bash
+node qrpdf.js <public address> <private key> <URL> <WIF>
+```
 
 # Air Dropping
 
-This section HAS NOT been ported to Neo Smart Economy.
+Coming soon!
 
-<insert image>
 
 # Learn More
 

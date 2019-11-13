@@ -1,3 +1,11 @@
+// accounts.js
+
+// Generate 'n' Neo Smart Economy accounts and store them to accounts.json.
+// node accounts n
+
+// accounts.json format
+
+
 const fs = require('fs')
 const util = require('util')
 const { default: Neon, wallet, api, rpc } = require("@cityofzion/neon-js")
@@ -19,7 +27,7 @@ const provider = new api.neoscan.instance("TestNet")
 // TODO: Add ferrite-style modularity and command line options
 
 let AMOUNT = process.argv[2]
-if(!AMOUNT) AMOUNT=1
+if(!AMOUNT) AMOUNT=2
 
 let accounts
 
@@ -30,7 +38,6 @@ for (let a=0; a<AMOUNT; a++) {
   result = new wallet.Account(wallet.generatePrivateKey())
 
   console.log('\nCreated wallet!: '+util.inspect(result, {depth: null}))
-
   console.log('WIF: '+result.WIF)
 
   try {

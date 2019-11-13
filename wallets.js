@@ -1,3 +1,9 @@
+// wallets.js
+
+// Call qrpdf.js for each account in accounts.json and merge the generated.pdf files into a single wallets.pdf for easy printing.
+
+// node wallets.js [URL]
+
 const util = require('util')
 const exec = util.promisify(require('child_process').exec)
 const merge = require('easy-pdf-merge')
@@ -7,14 +13,14 @@ let defly = true
 
 let sources = []
 
-let URL = process.argv[2] | ''
+let URL = process.argv[2] ? process.argv[2] : 'https://O3.network'
 
 async function generate(accounts){
   let account
 
   for (let a in accounts) {
     account = accounts[a]
-    const { stdout, stderr } = await exec('node create.js '+account.address+' '+account.pk+' '+URL+' '+account._WIF )
+    const { stdout, stderr } = await exec('node qrpdf.js '+account.address+' '+account.pk+' '+URL+' '+account._WIF )
 
     if (stderr) {
       console.error(`error: ${stderr}`)
