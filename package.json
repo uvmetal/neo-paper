@@ -1,6 +1,6 @@
 {
   "name": "neo-paper",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "main": "wallets.js",
   "scripts": {
     "clean": "rm accounts.json addresses.txt generated.html private.png bip39.png public.png wallets.pdf url.png",

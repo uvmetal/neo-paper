@@ -1,6 +1,6 @@
 # Overview
 
-`neo-paper v1.0.0`
+`neo-paper v1.0.1`
 
 This is a paper wallet for the Neo Smart Economy. neo-paper is the introductory work for neo-burner.
 
@@ -65,9 +65,9 @@ The format maintains compatibility with AG's work to ease integration and includ
 
 # Edit Design and Copy
 
-Edit `template.html` to make changes and replace `front.png`, `back.png`, `inside-left.png`, and `inside-right.png` to update images.
+Edit `template.html` to make changes.
 
-You can also set a global background with the `background.png` and a quick edit to `template.html`.
+You can also set a global background with the `background.png`.
 
 # Create Wallets from Accounts
 

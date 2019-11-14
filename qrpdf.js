@@ -34,7 +34,7 @@ if (PK) {
   let reversedPK = bip39.mnemonicToEntropy(bip39Mnemonic)
   console.log('Mnemonic Reversed Back to PK: \n'+reversedPK)
 
-  if (PK !== reversedPK) {
+  if (PK.toLowerCase() !== reversedPK.toLowerCase()) {
     console.log('Seed did not reverse to private key. Please try again.')
     console.log('Got: \n'+reversedPK+' and should have been: \n'+PK)
     return
